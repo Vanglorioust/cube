@@ -1,10 +1,23 @@
 <template>
-  <nav>
+  <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+    <router-link to="/about">About</router-link> |    
+    <router-link to="/registerProd">Registar Producto</router-link> |   
+  </div>
   <router-view/>
 </template>
+
+<script>
+import {mapActions} from 'vuex'
+export default {
+  methods:{
+    ...mapActions(['obtenerToken','cerrarSesion'])
+  },
+  created(){
+    this.obtenerToken()
+  }
+}
+</script>
 
 <style>
 #app {
